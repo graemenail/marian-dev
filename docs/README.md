@@ -10,8 +10,8 @@ The documentation is generated using Sphinx + Breathe + Doxygen + Exhale.
 
 On Ubuntu, install the following packages:
 
-    sudo apt-get install python3-sphinx python3-pip python3-setuptools
-    pip3 install --upgrade exhale recommonmark
+    sudo apt-get install python3-sphinx python3-pip python3-setuptools doxygen
+    pip3 install --upgrade sphinx breathe exhale recommonmark
 
 Documentation building should also work on Windows, but has not been tested
 yet.
