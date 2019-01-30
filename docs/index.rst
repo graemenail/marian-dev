@@ -5,7 +5,7 @@ Welcome to Marian's documentation!
    :maxdepth: 2
    :caption: Contents:
 
-   api/library_root
+   api/library_index
 
 
 Indices and tables
