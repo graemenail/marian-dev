@@ -3,40 +3,44 @@ Welcome to Marian's documentation!
 
 |buildgpu| |buildcpu| |tests| |release| |license| |gitter|
 
+Marian is an efficient and self-contained Neural Machine Translation framework
+with an integrated automatic differentiation engine based on dynamic
+computation graphs, written entirely in C++.
+
+- It is written completely in C++11 and intentionally does not provide Python
+  bindings: model code and meta-algorithms are meant to be implemented in
+  efficient C++ code.
+- It is self-contained with its own back end, which provides reverse-mode
+  automatic differentiation based on dynamic graphs.
+- It has minimal dependencies: CUDA or a BLAS library. Boost will be removed in
+  the near future.
+- It enables barrier-free optimization at all levels: meta-algorithms such as
+  MPI-based multi-node training, efficient batched beam search, compact
+  implementations of new models, custom operators, and custom GPU kernels.
+
+
 .. toctree::
    :maxdepth: 2
    :caption: Contents:
 
-   overview.rst
+   install.rst
 
-   .. motivating examples with explanation
-   examples/iris.rst
+   examples.rst
 
-   .. memory allocation
    reference/memory.rst
-   .. graph construction, node types, operators, layers, graph execution
-   reference/graph.rst
-   .. adding program options, passing them deeper
    reference/cli.rst
-   .. vocabs, batch specification
    reference/data.rst
-   .. adding new models
-   reference/models.rst
-   .. beam search, n-best lists
+   reference/graph.rst
+   reference/encdec.rst
    reference/inference.rst
-   .. debug(), gdb
-   reference/debugging.rst
-   .. unit tests, regression tests
+   reference/debug.rst
    reference/testing.rst
 
-   notes/faq.rst
-   notes/3rd_party.rst
-   notes/windows.rst
+   notes.rst
+   faq.rst
 
-   .. automatically generated API
-   api/library_index
+   api/library_index.rst
 
-   .. code style, writing documentation, sphinx cheatsheet
    ../CONTRIBUTING.md 
 
 

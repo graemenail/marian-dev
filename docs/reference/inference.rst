@@ -1,0 +1,6 @@
+Inference
+=========
+
+Beam search
+-----------
+

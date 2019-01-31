@@ -27,6 +27,7 @@ release = version + ' ' + str(datetime.date.today())
 needs_sphinx = '1.3'
 
 extensions = [
+    'sphinx.ext.todo',
     'breathe',
     'exhale',
     'recommonmark',
@@ -35,7 +36,12 @@ extensions = [
 templates_path = ['_templates']
 source_suffix = ['.rst', '.md']
 master_doc = 'index'
-exclude_patterns = ['_build', '_doxygen', 'README.md']
+exclude_patterns = [
+    '_build',
+    '_doxygen',
+    'README.md',
+    'api',
+]
 
 pygments_style = None
 
@@ -54,10 +60,10 @@ breathe_projects = { 'marian': './_doxygen/xml' }
 breathe_default_project = 'marian'
 
 doxygen_config = """
-INPUT             = ../src
-EXCLUDE           = ../src/3rd_party
-                    ../src/tests
-EXCLUDE_PATTERNS  = *.cpp *.inc *.md
+INPUT                = ../src
+EXCLUDE              = ../src/3rd_party
+EXCLUDE_PATTERNS     = *.cpp *.inc *.md
+WARN_IF_UNDOCUMENTED = NO
 """
 
 exhale_args = {
