@@ -29,7 +29,6 @@ needs_sphinx = '1.3'
 extensions = [
     'sphinx.ext.todo',
     'breathe',
-    'exhale',
     'recommonmark',
 ]
 
@@ -42,17 +41,19 @@ exclude_patterns = [
     'README.md',
 ]
 
-if tags.has('api'):
-    exclude_patterns.append('api')
-
 pygments_style = None
+
+if tags.has('www'):
+    html_baseurl = '/docs/api/'
+if tags.has('api'):
+    extensions.append('exhale')
+    exclude_patterns.append('api')
 
 
 # -- Options for HTML output -------------------------------------------------
 
 html_theme = 'sphinx_rtd_theme'
 html_static_path = ['_static']
-
 htmlhelp_basename = 'mariandoc'
 
 
