@@ -40,8 +40,10 @@ exclude_patterns = [
     '_build',
     '_doxygen',
     'README.md',
-    'api',
 ]
+
+if tags.has('api'):
+    exclude_patterns.append('api')
 
 pygments_style = None
 
