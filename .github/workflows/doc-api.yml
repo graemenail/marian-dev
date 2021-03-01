@@ -24,6 +24,13 @@ jobs:
         with:
           python-version: 3.7
 
+      - uses: actions/cache@v2
+        with:
+          path: ~/.cache/pip
+          key: ${{ runner.os }}-pip-${{ hashFiles('**/requirements.txt') }}
+          restore-keys: |
+            ${{ runner.os }}-pip-
+
       - name: Install dependencies
         run: pip install -r requirements.txt
         working-directory: ./doc
@@ -31,3 +38,10 @@ jobs:
       - name: Build documentation
         run: make html
         working-directory: ./doc
+
+
+      - name: Upload
+        uses: actions/upload-artifact@v2
+        with:
+          name: docs
+          path: ${{ github.workspace }}/doc
