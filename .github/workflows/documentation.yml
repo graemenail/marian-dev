@@ -68,16 +68,14 @@ jobs:
           name: api-docs
           path: api
 
-      - run: pwd; ls
+      - working-directory: api
+        run: pwd; ls -valphs
 
       - working-directory: website/docs
         run: pwd; ls -valphs
 
-      # - working-directory: api
-      #   run: pwd; ls
-
       - name: Update API docs
-        run: rsync -av --delete api/ website/docs/api
+        run: rsync -av --delete-before api/ website/docs/api
 
       - working-directory: website/docs/api
         run: pwd; ls -valphs
