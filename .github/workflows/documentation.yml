@@ -48,6 +48,7 @@ jobs:
         with:
           name: api-docs
           path: ./doc/build/html
+          retention-days: 1
           # if-no-files-found: error
 
       # - name: Deploy to marian-nmt.github.io repo
@@ -61,15 +62,21 @@ jobs:
           repository: graemenail/marian-nmt.github.io
           path: website
 
-      - uses: actions/download-artifact@v2
+      - name: Download API documentation
+        uses: actions/download-artifact@v2
         with:
           name: api-docs
           path: api
 
       - run: pwd; ls
 
-      - working-directory: website
-        run: pwd; ls
+      - working-directory: website/docs
+        run: pwd; ls -valphs
 
-      - working-directory: api
-        run: pwd; ls
+      # - working-directory: api
+      #   run: pwd; ls
+
+      - run: mv -fv api website/docs
+
+      - working-directory: website/docs
+        run: pwd; ls -valphs
