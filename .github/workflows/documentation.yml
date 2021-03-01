@@ -80,3 +80,6 @@ jobs:
 
       - working-directory: website/docs/api
         run: pwd; ls -valphs
+
+      - working-directory: website
+        run: git status
