@@ -76,7 +76,8 @@ jobs:
       # - working-directory: api
       #   run: pwd; ls
 
-      - run: mv -fv api website/docs
+      - name: Update API docs
+        run: rsync -d --delete api/ website/docs/api
 
       - working-directory: website/docs
         run: pwd; ls -valphs
