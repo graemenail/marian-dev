@@ -45,4 +45,4 @@ jobs:
         uses: actions/upload-artifact@v2
         with:
           name: docs
-          path: ${{ github.workspace }}/doc
+          path: ./doc/build/html
