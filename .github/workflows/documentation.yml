@@ -83,5 +83,8 @@ jobs:
 
       - working-directory: website
         run: |
+          git add docs/api
+
+      - working-directory: website
+        run: |
           git status
-          git add website/docs/api
