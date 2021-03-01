@@ -13,7 +13,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
         with:
-          submodules: false
+          submodules: recursive
 
       - name: Set up Doxygen
         run: sudo apt-get install -y doxygen
@@ -54,6 +54,7 @@ jobs:
 
       # - name: Deploy to marian-nmt.github.io repo
   deploy:
+    # if: IS_A_TAGGED_RELEASE
     runs-on: ubuntu-latest
     needs: [api-documentation]
     steps:
