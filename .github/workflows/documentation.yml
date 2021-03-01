@@ -92,4 +92,11 @@ jobs:
 
       - working-directory: website
         run: |
-          git diff --staged
+          git diff --staged > patch.diff
+
+      - name: Upload log
+        uses: actions/upload-artifact@v2
+        with:
+          name: diff
+          path: ./website/patch.diff
+          retention-days: 1
