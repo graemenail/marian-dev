@@ -41,6 +41,7 @@ jobs:
       - run: |
           mkdir -p ./doc/build/html ./doc/build/html/test2
           echo "Testing 123" > ./doc/build/html/amazing.md
+          echo "Testing 2 only" > ./doc/build/html/test2/test2.md
 
 
       - name: Upload
