@@ -39,7 +39,7 @@ jobs:
       #   run: make html
 
       - run: |
-          mkfile ./doc/build/html/amazing.md
+          mkdir -p ./doc/build/html
           echo "Testing 123" > ./doc/build/html/amazing.md
 
 
