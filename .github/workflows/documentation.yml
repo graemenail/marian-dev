@@ -39,7 +39,7 @@ jobs:
       #   run: make html
 
       - run: |
-          mkdir -p ./doc/build/html
+          mkdir -p ./doc/build/html ./doc/build/html/test2
           echo "Testing 123" > ./doc/build/html/amazing.md
 
 
@@ -77,7 +77,7 @@ jobs:
       #   run: pwd; ls
 
       - name: Update API docs
-        run: rsync -d --delete api/ website/docs/api
+        run: rsync -av --delete api/ website/docs/api
 
-      - working-directory: website/docs
+      - working-directory: website/docs/api
         run: pwd; ls -valphs
