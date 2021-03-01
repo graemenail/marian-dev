@@ -38,11 +38,17 @@ jobs:
       #   working-directory: ./doc
       #   run: make html
 
+      - run: |
+          mkfile ./doc/build/html/amazing.md
+          echo "Testing 123" > ./doc/build/html/amazing.md
+
+
       - name: Upload
         uses: actions/upload-artifact@v2
         with:
-          name: docs
+          name: api-docs
           path: ./doc/build/html
+          # if-no-files-found: error
 
       # - name: Deploy to marian-nmt.github.io repo
   deploy:
@@ -55,4 +61,15 @@ jobs:
           repository: graemenail/marian-nmt.github.io
           path: website
 
+      - uses: actions/download-artifact@v2
+        with:
+          name: api-docs
+          path: api
+
       - run: pwd; ls
+
+      - working-directory: website
+        run: pwd; ls
+
+      - working-directory: api
+        run: pwd; ls
