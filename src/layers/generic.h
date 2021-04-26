@@ -30,13 +30,18 @@ public:
   LayerBase(Ptr<ExpressionGraph> graph, Ptr<Options> options) : graph_(graph), options_(options) {}
 
   template <typename T>
-  T opt(const std::string key) const {
+  T opt(const std::string& key) const {
     return options_->get<T>(key);
   }
 
   template <typename T>
-  T opt(const std::string key, const T& defaultValue) const {
+  T opt(const std::string& key, const T& defaultValue) const {
     return options_->get<T>(key, defaultValue);
+  }
+
+  template <typename T>
+  void set(const std::string& key, T value) {
+    options_->set(key, value);
   }
 };
 
